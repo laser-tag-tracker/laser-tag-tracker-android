@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/matchListFragment">
+
+    <fragment
+        android:id="@+id/matchFormFragment"
+        android:name="fr.efrei.maudarsene.lasertagtracker.view.MatchFormFragment"
+        android:label="MatchFormFragment" />
+    <fragment
+        android:id="@+id/matchListFragment"
+        android:name="fr.efrei.maudarsene.lasertagtracker.view.MatchListFragment"
+        android:label="fragment_match_list"
+        tools:layout="@layout/fragment_match_list" >
+        <action
+            android:id="@+id/action_matchListFragment_to_matchFormFragment"
+            app:destination="@id/matchFormFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+</navigation>
