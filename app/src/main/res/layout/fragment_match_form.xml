@@ -61,6 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/match_form_score_hint"
+                android:text="@={viewModel.score}"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,6 +92,7 @@
                     android:id="@+id/inputMatchPlayerRank"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="@={viewModel.rank}"
                     android:hint="@string/player_rank"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -107,6 +109,7 @@
                     android:id="@+id/inputMatchPlayerPrecision"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="@={viewModel.precision}"
                     android:hint="@string/precision"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -132,6 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/team_score"
+                android:text="@={viewModel.teamScore}"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -173,6 +177,8 @@
                     android:id="@+id/inputMatchGivenChest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="@={viewModel.chestGiven}"
+                    android:inputType="number"
                     android:hint="@string/chest" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -186,6 +192,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="@={viewModel.backGiven}"
+                    android:inputType="number"
                     android:hint="@string/back" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -211,12 +219,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
+                android:inputType="number"
                 android:layout_weight="0.5">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputMatchGivenShoulder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="@={viewModel.shouldersGiven}"
                     android:hint="@string/shoulder" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -230,6 +241,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="@={viewModel.gunGiven}"
+                    android:inputType="number"
                     android:hint="@string/gun" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -266,12 +279,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
+
                 android:layout_weight="0.5">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputMatchReceivedChest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="@={viewModel.chestReceived}"
                     android:hint="@string/chest" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -285,6 +301,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="@={viewModel.backReceived}"
                     android:hint="@string/back" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -316,6 +334,8 @@
                     android:id="@+id/inputMatchReceivedShoulder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="@={viewModel.shouldersReceived}"
                     android:hint="@string/shoulder" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -329,11 +349,14 @@
                     android:id="@+id/inputMatchReceivedGun"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="@={viewModel.gunReceived}"
                     android:hint="@string/gun" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <Button
+            android:onClick="@{() -> viewModel.submit()}"
             android:id="@+id/btnMatchValidate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

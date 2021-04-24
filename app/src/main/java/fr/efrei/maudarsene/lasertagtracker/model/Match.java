@@ -1,12 +1,17 @@
 package fr.efrei.maudarsene.lasertagtracker.model;
 
+import java.time.LocalDate;
+
 public class Match {
+
+    private String id;
 
     private String playerName;
     private int rank;
     private int score;
     private double precision;
     private int teamScore;
+    private LocalDate date;
 
     // Given
     private int chestGiven;
@@ -25,7 +30,13 @@ public class Match {
     private double latitude;
     private double longitude;
 
-    public Match(String playerName, int rank, int score, double precision, int teamScore, int chestGiven, int backGiven, int shouldersGiven, int gunGiven, int chestReceived, int backReceived, int shouldersReceived, int gunReceived, String address, double latitude, double longitude) {
+    public Match(String id, String playerName, int rank, int score, double precision, int teamScore,LocalDate date, int chestGiven, int backGiven, int shouldersGiven, int gunGiven, int chestReceived, int backReceived, int shouldersReceived, int gunReceived, String address, double latitude, double longitude) {
+        this(playerName, rank, score, precision, teamScore,date, chestGiven, backGiven, shouldersGiven, gunGiven, chestReceived, backReceived, shouldersReceived, gunReceived, address, latitude, longitude);
+        this.id = id;
+    }
+
+
+    public Match(String playerName, int rank, int score, double precision, int teamScore,LocalDate date, int chestGiven, int backGiven, int shouldersGiven, int gunGiven, int chestReceived, int backReceived, int shouldersReceived, int gunReceived, String address, double latitude, double longitude) {
         this.playerName = playerName;
         this.rank = rank;
         this.score = score;
@@ -42,6 +53,7 @@ public class Match {
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.date = date;
     }
 
     // Computed Properties
@@ -59,6 +71,15 @@ public class Match {
     }
 
     // Getters & setters
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public int getRank() {
         return rank;
@@ -187,5 +208,13 @@ public class Match {
 
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }

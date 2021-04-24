@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/matchFormFragment"
         android:name="fr.efrei.maudarsene.lasertagtracker.view.MatchFormFragment"
-        android:label="MatchFormFragment" />
+        android:label="MatchFormFragment" >
+        <action
+            android:id="@+id/action_matchFormFragment_to_matchListFragment"
+            app:destination="@id/matchListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/matchListFragment"
         android:name="fr.efrei.maudarsene.lasertagtracker.view.MatchListFragment"
