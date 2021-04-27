@@ -24,6 +24,7 @@ public class MatchListAdapter extends RecyclerView.Adapter<MatchListAdapter.Matc
 
     public void setMatches(List<Match> matches) {
         this.matches = matches;
+        notifyDataSetChanged();
     }
 
     @NonNull

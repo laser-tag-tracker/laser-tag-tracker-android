@@ -45,8 +45,10 @@ public class MatchFormFragment extends Fragment {
         FragmentMatchFormBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_match_form,container, false );
         binding.setViewModel(this.viewModel);
         binding.setLifecycleOwner(this);
+
         View view = binding.getRoot();
         ButterKnife.bind(this,view);
+
         this.viewModel.setNavigationService(new NavigationServiceImpl(view));
         this.viewModel.setMatchLocalRepository(new MatchLocalRepositoryImpl(this.getContext()));
         return view;
