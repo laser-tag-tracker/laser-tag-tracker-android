@@ -16,7 +16,7 @@ import fr.efrei.maudarsene.lasertagtracker.view.MatchListFragmentDirections;
 
 public class MatchListViewModel extends AndroidViewModel {
 
-    public MutableLiveData<List<Match>> matchList;
+    public MutableLiveData<List<Match>> matchList = new MutableLiveData<>();
 
     private MatchLocalRepository matchLocalRepository;
     private NavigationService navigationService;

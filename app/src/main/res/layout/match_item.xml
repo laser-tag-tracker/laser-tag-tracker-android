@@ -1,19 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
+
         <variable
             name="match"
             type="fr.efrei.maudarsene.lasertagtracker.model.Match" />
     </data>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <TextView
-        style="@style/matchFormTitle"
-        android:text="@{match.playerName}"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/matchFormTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{match.playerName}"></TextView>
+
+                <TextView
+
+                    style="@style/listViewScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(match.score) + ` - ` + String.valueOf(match.teamScore)}"></TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="end"
+                android:layout_weight="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/matchFormTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@{`#` + String.valueOf(match.rank)}"
+                    android:textAlignment="viewEnd"></TextView>
+
+                <TextView
+                    style="@style/listViewScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(match.date)}"
+                    android:textAlignment="viewEnd"></TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 </layout>

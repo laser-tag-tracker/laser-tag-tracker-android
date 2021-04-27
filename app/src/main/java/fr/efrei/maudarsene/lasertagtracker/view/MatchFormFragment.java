@@ -23,6 +23,7 @@ import fr.efrei.maudarsene.lasertagtracker.R;
 import fr.efrei.maudarsene.lasertagtracker.databinding.FragmentMatchFormBinding;
 import fr.efrei.maudarsene.lasertagtracker.services.database.MatchLocalRepositoryImpl;
 import fr.efrei.maudarsene.lasertagtracker.services.navigation.NavigationServiceImpl;
+import fr.efrei.maudarsene.lasertagtracker.utils.BindingAdapters;
 import fr.efrei.maudarsene.lasertagtracker.viewmodel.MatchFormViewModel;
 
 public class MatchFormFragment extends Fragment {
@@ -56,60 +57,22 @@ public class MatchFormFragment extends Fragment {
 
     @InverseBindingAdapter(attribute = "android:text")
     public static Double getDouble(TextInputEditText widget){
-        String value = widget.getText().toString();
-        if(value.equals("")){
-            return null;
-        }
-        try {
-            return Double.parseDouble(value);
-        } catch (NumberFormatException e){
-            if(value.length() >= 2){
-                return Double.parseDouble(value.substring(1,value.length() - 2));
-            }
-            else {
-                return null;
-            }
-        }
+        return BindingAdapters.getDouble(widget);
     }
-
 
     @BindingAdapter("android:text")
     public static void setDouble(TextInputEditText widget, Double number){
-        if(number == null || widget.getText().toString().equals(number.toString())){
-            return;
-        }
-        else {
-            widget.setText(number.toString());
-        }
-
+        BindingAdapters.setDouble(widget, number);
     }
 
     @InverseBindingAdapter(attribute = "android:text")
     public static Integer getInt(TextInputEditText widget){
-        String value = widget.getText().toString();
-        if(value.equals("")){
-            return null;
-        }
-        try {
-            return Integer.parseInt(value);
-        } catch (NumberFormatException e){
-            if(value.length() >= 2){
-                return Integer.parseInt(value.substring(1,value.length() - 2));
-            }
-            else {
-                return null;
-            }
-        }
+        return BindingAdapters.getInt(widget);
     }
+
     @BindingAdapter("android:text")
     public static void setInteger(TextInputEditText widget, Integer number){
-        if(number == null || widget.getText().toString().equals(number.toString())){
-            return;
-        }
-        else {
-            widget.setText(number.toString());
-        }
-
+        BindingAdapters.setInteger(widget, number);
     }
 
 

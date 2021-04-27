@@ -73,6 +73,8 @@ public class MatchLocalRepositoryImpl implements MatchLocalRepository {
 
                     null, 0, 0
             );
+            cursor.move(1);
+            matches.add(match);
         }
 
         return matches;
