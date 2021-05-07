@@ -1,16 +1,21 @@
 package fr.efrei.maudarsene.lasertagtracker.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Match {
+public class Match implements Serializable {
 
     private String id;
+    private String userId;
 
     private String playerName;
     private int rank;
     private int score;
     private double precision;
     private int teamScore;
+
     private LocalDate date;
 
     // Given
@@ -30,11 +35,17 @@ public class Match {
     private double latitude;
     private double longitude;
 
-    public Match(String id, String playerName, int rank, int score, double precision, int teamScore,LocalDate date, int chestGiven, int backGiven, int shouldersGiven, int gunGiven, int chestReceived, int backReceived, int shouldersReceived, int gunReceived, String address, double latitude, double longitude) {
-        this(playerName, rank, score, precision, teamScore,date, chestGiven, backGiven, shouldersGiven, gunGiven, chestReceived, backReceived, shouldersReceived, gunReceived, address, latitude, longitude);
-        this.id = id;
+    /**
+     * For jackson JSON serialization
+     */
+    public Match() {
     }
 
+    public Match(String id, String userId, String playerName, int rank, int score, double precision, int teamScore, LocalDate date, int chestGiven, int backGiven, int shouldersGiven, int gunGiven, int chestReceived, int backReceived, int shouldersReceived, int gunReceived, String address, double latitude, double longitude) {
+        this(playerName, rank, score, precision, teamScore,date, chestGiven, backGiven, shouldersGiven, gunGiven, chestReceived, backReceived, shouldersReceived, gunReceived, address, latitude, longitude);
+        this.id = id;
+        this.userId = userId;
+    }
 
     public Match(String playerName, int rank, int score, double precision, int teamScore,LocalDate date, int chestGiven, int backGiven, int shouldersGiven, int gunGiven, int chestReceived, int backReceived, int shouldersReceived, int gunReceived, String address, double latitude, double longitude) {
         this.playerName = playerName;
@@ -72,6 +83,14 @@ public class Match {
 
     // Getters & setters
 
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getId() {
         return id;
@@ -216,5 +235,30 @@ public class Match {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Match{" +
+                "id='" + id + '\'' +
+                ", userId='" + userId + '\'' +
+                ", playerName='" + playerName + '\'' +
+                ", rank=" + rank +
+                ", score=" + score +
+                ", precision=" + precision +
+                ", teamScore=" + teamScore +
+                ", date=" + date +
+                ", chestGiven=" + chestGiven +
+                ", backGiven=" + backGiven +
+                ", shouldersGiven=" + shouldersGiven +
+                ", gunGiven=" + gunGiven +
+                ", chestReceived=" + chestReceived +
+                ", backReceived=" + backReceived +
+                ", shouldersReceived=" + shouldersReceived +
+                ", gunReceived=" + gunReceived +
+                ", address='" + address + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
     }
 }

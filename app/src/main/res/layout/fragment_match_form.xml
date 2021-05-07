@@ -19,25 +19,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:minHeight="128dp"
+            app:srcCompat="@drawable/ic_baseline_image_24" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputPlayerNameLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/imageView">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputMatchPlayerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={viewModel.playerName}"
-                android:hint="@string/match_form_name_hint" />
+                android:hint="@string/match_form_name_hint"
+                android:text="@={viewModel.playerName}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -47,11 +69,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
 
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputPlayerNameLayout">
@@ -61,8 +81,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/match_form_score_hint"
-                android:text="@={viewModel.score}"
-                android:inputType="number" />
+                android:inputType="number"
+                android:text="@={viewModel.score}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
@@ -71,10 +91,8 @@
             android:layout_height="wrap_content"
 
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -92,9 +110,9 @@
                     android:id="@+id/inputMatchPlayerRank"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.rank}"
                     android:hint="@string/player_rank"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="@={viewModel.rank}" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -109,9 +127,9 @@
                     android:id="@+id/inputMatchPlayerPrecision"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.precision}"
                     android:hint="@string/precision"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="@={viewModel.precision}" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -120,10 +138,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rankPrecisionLayout">
@@ -135,8 +151,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/team_score"
-                android:text="@={viewModel.teamScore}"
-                android:inputType="number" />
+                android:inputType="number"
+                android:text="@={viewModel.teamScore}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -156,10 +172,8 @@
             android:layout_height="wrap_content"
 
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -177,9 +191,9 @@
                     android:id="@+id/inputMatchGivenChest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.chestGiven}"
+                    android:hint="@string/chest"
                     android:inputType="number"
-                    android:hint="@string/chest" />
+                    android:text="@={viewModel.chestGiven}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -192,9 +206,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.backGiven}"
+                    android:hint="@string/back"
                     android:inputType="number"
-                    android:hint="@string/back" />
+                    android:text="@={viewModel.backGiven}" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -204,10 +218,8 @@
             android:layout_height="wrap_content"
 
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -219,16 +231,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:inputType="number"
-                android:layout_weight="0.5">
+                android:layout_weight="0.5"
+                android:inputType="number">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputMatchGivenShoulder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/shoulder"
                     android:inputType="number"
-                    android:text="@={viewModel.shouldersGiven}"
-                    android:hint="@string/shoulder" />
+                    android:text="@={viewModel.shouldersGiven}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -241,9 +253,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.gunGiven}"
+                    android:hint="@string/gun"
                     android:inputType="number"
-                    android:hint="@string/gun" />
+                    android:text="@={viewModel.gunGiven}" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -264,10 +276,8 @@
             android:layout_height="wrap_content"
 
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -286,9 +296,9 @@
                     android:id="@+id/inputMatchReceivedChest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/chest"
                     android:inputType="number"
-                    android:text="@={viewModel.chestReceived}"
-                    android:hint="@string/chest" />
+                    android:text="@={viewModel.chestReceived}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -301,9 +311,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/back"
                     android:inputType="number"
-                    android:text="@={viewModel.backReceived}"
-                    android:hint="@string/back" />
+                    android:text="@={viewModel.backReceived}" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -313,10 +323,8 @@
             android:layout_height="wrap_content"
 
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -334,9 +342,9 @@
                     android:id="@+id/inputMatchReceivedShoulder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/shoulder"
                     android:inputType="number"
-                    android:text="@={viewModel.shouldersReceived}"
-                    android:hint="@string/shoulder" />
+                    android:text="@={viewModel.shouldersReceived}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -349,22 +357,20 @@
                     android:id="@+id/inputMatchReceivedGun"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/gun"
                     android:inputType="number"
-                    android:text="@={viewModel.gunReceived}"
-                    android:hint="@string/gun" />
+                    android:text="@={viewModel.gunReceived}" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <Button
-            android:onClick="@{() -> viewModel.submit()}"
             android:id="@+id/btnMatchValidate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:onClick="@{() -> viewModel.submit()}"
             android:text="@string/validate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

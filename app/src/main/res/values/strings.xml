@@ -15,4 +15,9 @@
     <string name="received_hits">Received Hits</string>
     <string name="validate">Validate</string>
     <string name="team_score">Team Score</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="passwordConf">Password Confirmation</string>
 </resources>

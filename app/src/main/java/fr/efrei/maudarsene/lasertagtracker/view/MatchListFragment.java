@@ -24,6 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import fr.efrei.maudarsene.lasertagtracker.R;
 import fr.efrei.maudarsene.lasertagtracker.databinding.FragmentMatchListBinding;
+import fr.efrei.maudarsene.lasertagtracker.services.api.LaserTagTrackerServiceImpl;
 import fr.efrei.maudarsene.lasertagtracker.services.database.MatchLocalRepositoryImpl;
 import fr.efrei.maudarsene.lasertagtracker.services.navigation.NavigationServiceImpl;
 import fr.efrei.maudarsene.lasertagtracker.utils.BindingAdapters;
@@ -59,6 +60,7 @@ public class MatchListFragment extends Fragment {
 
         this.viewModel.setMatchLocalRepository(new MatchLocalRepositoryImpl(this.getContext()));
         this.viewModel.setNavigationService(new NavigationServiceImpl(view));
+        this.viewModel.setLaserTagTrackerService(LaserTagTrackerServiceImpl.getINSTANCE());
 
         return view;
     }
@@ -66,9 +68,11 @@ public class MatchListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         this.viewModel.loadMatches();
-        MatchListAdapter adapter = new MatchListAdapter(this.viewModel.matchList.getValue());
+        MatchListAdapter adapter = new MatchListAdapter(this.viewModel.matchList.getValue(), this.viewModel::handleItemClicked);
         this.matchListRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         this.matchListRecyclerView.setAdapter(adapter);
+
+        this.viewModel.matchList.observe(this, value -> adapter.setMatches(value));
     }
 
 }

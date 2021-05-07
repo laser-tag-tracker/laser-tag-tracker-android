@@ -21,6 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import fr.efrei.maudarsene.lasertagtracker.R;
 import fr.efrei.maudarsene.lasertagtracker.databinding.FragmentMatchFormBinding;
+import fr.efrei.maudarsene.lasertagtracker.services.api.LaserTagTrackerServiceImpl;
 import fr.efrei.maudarsene.lasertagtracker.services.database.MatchLocalRepositoryImpl;
 import fr.efrei.maudarsene.lasertagtracker.services.navigation.NavigationServiceImpl;
 import fr.efrei.maudarsene.lasertagtracker.utils.BindingAdapters;
@@ -52,6 +53,7 @@ public class MatchFormFragment extends Fragment {
 
         this.viewModel.setNavigationService(new NavigationServiceImpl(view));
         this.viewModel.setMatchLocalRepository(new MatchLocalRepositoryImpl(this.getContext()));
+        this.viewModel.setLaserTagTrackerService(LaserTagTrackerServiceImpl.getINSTANCE());
         return view;
     }
 

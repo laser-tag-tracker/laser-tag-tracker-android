@@ -13,6 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     "id TEXT PRIMARY KEY, " +
+                    "userId TEXT NOT NULL, " +
                     "playerName TEXT NOT NULL," +
                     "rank INTEGER NOT NULL," +
                     "score INTEGER NOT NULL," +

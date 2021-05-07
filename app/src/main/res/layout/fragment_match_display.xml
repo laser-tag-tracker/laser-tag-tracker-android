@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <data>
+        <variable
+            name="viewModel"
+            type="fr.efrei.maudarsene.lasertagtracker.viewmodel.MatchDisplayViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MatchDisplayFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@{viewModel.match.playerName}" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -44,8 +44,9 @@ dependencies {
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation 'com.squareup.retrofit2:converter-jackson:2.1.0'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.3'
+
 
     // Butter Knife
     implementation "com.jakewharton:butterknife:$butterKnifeVersion"

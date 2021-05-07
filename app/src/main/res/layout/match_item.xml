@@ -6,9 +6,14 @@
         <variable
             name="match"
             type="fr.efrei.maudarsene.lasertagtracker.model.Match" />
+
+        <variable
+            name="onItemClicked"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <LinearLayout
+        android:onClick="@{onItemClicked}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp">

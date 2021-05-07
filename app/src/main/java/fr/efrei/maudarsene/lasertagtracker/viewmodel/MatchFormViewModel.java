@@ -1,6 +1,8 @@
 package fr.efrei.maudarsene.lasertagtracker.viewmodel;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -9,6 +11,8 @@ import androidx.lifecycle.MutableLiveData;
 import java.time.LocalDate;
 
 import fr.efrei.maudarsene.lasertagtracker.model.Match;
+import fr.efrei.maudarsene.lasertagtracker.services.api.GenericAsyncTask;
+import fr.efrei.maudarsene.lasertagtracker.services.api.LaserTagTrackerService;
 import fr.efrei.maudarsene.lasertagtracker.services.database.MatchLocalRepository;
 import fr.efrei.maudarsene.lasertagtracker.services.database.MatchLocalRepositoryImpl;
 import fr.efrei.maudarsene.lasertagtracker.services.navigation.NavigationService;
@@ -39,8 +43,8 @@ public class MatchFormViewModel extends AndroidViewModel {
     public MutableLiveData<Double> longitude = new MutableLiveData<>();
 
     private MatchLocalRepository matchLocalRepository;
-
     private NavigationService navigationService;
+    private LaserTagTrackerService laserTagTrackerService;
 
     public void setNavigationService(NavigationService navigationService) {
         this.navigationService = navigationService;
@@ -48,6 +52,10 @@ public class MatchFormViewModel extends AndroidViewModel {
 
     public void setMatchLocalRepository(MatchLocalRepository matchLocalRepository) {
         this.matchLocalRepository = matchLocalRepository;
+    }
+
+    public void setLaserTagTrackerService(LaserTagTrackerService laserTagTrackerService) {
+        this.laserTagTrackerService = laserTagTrackerService;
     }
 
     public MatchFormViewModel(@NonNull Application application) {
@@ -76,8 +84,16 @@ public class MatchFormViewModel extends AndroidViewModel {
                 0
         );
 
-        matchLocalRepository.insertMatch(match);
+        new GenericAsyncTask<Match,Match>(
+                param -> laserTagTrackerService.createMatch(param),
+                this::handleMatchCreated
+        ).execute(match);
+    }
 
+    void handleMatchCreated(Match match){
+        SharedPreferences credentials = this.getApplication().getSharedPreferences("CREDENTIALS", Context.MODE_PRIVATE);
+        match.setUserId(credentials.getString("userId", null));
+        matchLocalRepository.insertMatch(match);
         this.navigationService.navigate(MatchFormFragmentDirections.actionMatchFormFragmentToMatchListFragment());
     }
 }

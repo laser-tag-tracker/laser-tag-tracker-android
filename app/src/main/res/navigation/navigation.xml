@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/matchListFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/matchFormFragment"
@@ -23,5 +23,38 @@
             app:destination="@id/matchFormFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_matchListFragment_to_matchDisplayFragment"
+            app:destination="@id/matchDisplayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="fr.efrei.maudarsene.lasertagtracker.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_matchListFragment"
+            app:destination="@id/matchListFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="fr.efrei.maudarsene.lasertagtracker.view.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchDisplayFragment"
+        android:name="fr.efrei.maudarsene.lasertagtracker.view.MatchDisplayFragment"
+        android:label="fragment_match_display"
+        tools:layout="@layout/fragment_match_display" >
+        <argument
+            android:name="match"
+            app:argType="fr.efrei.maudarsene.lasertagtracker.model.Match" />
     </fragment>
 </navigation>

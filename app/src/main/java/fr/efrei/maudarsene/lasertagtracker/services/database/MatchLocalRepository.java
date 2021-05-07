@@ -7,6 +7,6 @@ import fr.efrei.maudarsene.lasertagtracker.model.Match;
 public interface MatchLocalRepository {
 
     void insertMatch(Match match);
-    List<Match> getMatches();
+    List<Match> getMatchesForUser(String userId);
 
 }
