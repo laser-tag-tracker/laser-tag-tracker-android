@@ -61,4 +61,8 @@ public class MatchListViewModel extends AndroidViewModel {
     public void handleItemClicked(Match match) {
         this.navigationService.navigate(MatchListFragmentDirections.actionMatchListFragmentToMatchDisplayFragment(match));
     }
+
+    public void navigateToPlayerStats() {
+        this.navigationService.navigate(MatchListFragmentDirections.actionMatchListFragmentToPlayerStatsFragment());
+    }
 }

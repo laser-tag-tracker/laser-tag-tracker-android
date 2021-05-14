@@ -1,9 +1,11 @@
 package fr.efrei.maudarsene.lasertagtracker.view;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -11,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import fr.efrei.maudarsene.lasertagtracker.R;
 import fr.efrei.maudarsene.lasertagtracker.databinding.FragmentLoginBinding;
@@ -51,5 +54,10 @@ public class MatchDisplayFragment extends Fragment {
             Match match = MatchDisplayFragmentArgs.fromBundle(getArguments()).getMatch();
             this.viewModel.match.setValue(match);
         }
+    }
+
+    @BindingAdapter("app:imageBitmap")
+    public static void loadImage(ImageView iv, Bitmap bitmap) {
+        iv.setImageBitmap(bitmap);
     }
 }

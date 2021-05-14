@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -37,28 +38,41 @@ public class LoginViewModel extends AndroidViewModel {
     }
 
     public void handleClickRegister() {
-
-
         this.navigationService.navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment());
     }
 
     public void checkStoredCredentials(){
         SharedPreferences credentials = this.getApplication().getSharedPreferences("CREDENTIALS", Context.MODE_PRIVATE);
-        if(credentials.contains("username") && credentials.contains("password") && credentials.contains("token")){
-            navigateToList();
-            this.laserTagTrackerService.setAuthToken(credentials.getString("token", null));
+        if(credentials.contains("username") && credentials.contains("password")){
+            this.username.setValue(credentials.getString("username",null));
+            this.password.setValue(credentials.getString("password",null));
+
+            this.handleClickLogin();
         }
     }
 
 
     public void handleClickLogin() {
-        new GenericAsyncTask<CredentialsDto, AuthSuccessDto>(
-                credentialsDto -> laserTagTrackerService.login(credentialsDto),
-                this::handleAuthSuccess
-        ).execute(new CredentialsDto(username.getValue(), password.getValue()));
+
+            new GenericAsyncTask<CredentialsDto, AuthSuccessDto>(
+                    credentialsDto -> {
+                        try {
+                            return laserTagTrackerService.login(credentialsDto);
+                        } catch (IllegalArgumentException exception){
+                            Log.d("Authentication","Failed");
+                        }
+                        return null;
+                    },
+                    this::handleAuthSuccess
+            ).execute(new CredentialsDto(username.getValue(), password.getValue()));
+
     }
 
     public void handleAuthSuccess(AuthSuccessDto dto) {
+        if(dto == null){
+            Toast.makeText(this.getApplication().getApplicationContext(), "Wrong credentials", Toast.LENGTH_SHORT).show();
+            return;
+        }
         SharedPreferences credentials = this.getApplication().getSharedPreferences("CREDENTIALS", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = credentials.edit();
         editor.putString("username", dto.getUsername());

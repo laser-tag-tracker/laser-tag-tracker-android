@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_matchListFragment_to_matchDisplayFragment"
             app:destination="@id/matchDisplayFragment" />
+        <action
+            android:id="@+id/action_matchListFragment_to_playerStatsFragment"
+            app:destination="@id/playerStatsFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -56,5 +59,14 @@
         <argument
             android:name="match"
             app:argType="fr.efrei.maudarsene.lasertagtracker.model.Match" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerStatsFragment"
+        android:name="fr.efrei.maudarsene.lasertagtracker.view.PlayerStatsFragment"
+        android:label="fragment_player_stats"
+        tools:layout="@layout/fragment_player_stats" >
+        <action
+            android:id="@+id/action_playerStatsFragment_to_matchListFragment"
+            app:destination="@id/matchListFragment" />
     </fragment>
 </navigation>
