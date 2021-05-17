@@ -91,8 +91,7 @@ public class MatchFormFragment extends Fragment {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            imageView.setImageBitmap(imageBitmap);
-            this.viewModel.image = imageBitmap;
+            this.viewModel.image.setValue(imageBitmap);
         }
 
     }
@@ -126,11 +125,8 @@ public class MatchFormFragment extends Fragment {
     }
 
 
-
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         this.imageFloatingActionButton.setOnClickListener(v -> dispatchTakePictureIntent());
-        this.viewModel.playerName.observe(this, value -> System.out.println(value));
     }
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Traqueur Laser Game</string>
+    <string name="match_form_name_hint">Nom du joueur</string>
+    <string name="match_form_score_hint">Score du joueur</string>
+    <string name="hello_blank_fragment">Bonjour fragment vide</string>
+    <string name="player_rank">Classement du joueur</string>
+    <string name="precision">Précision</string>
+    <string name="given_hits">Coups donnés</string>
+    <string name="chest">Plastron</string>
+    <string name="back">Dos</string>
+    <string name="shoulder">Epaule</string>
+    <string name="gun">Arme</string>
+    <string name="received_hits">Coups reçus</string>
+    <string name="validate">Valider</string>
+    <string name="team_score">Score de l\'équipe</string>
+    <string name="login">Connexion</string>
+    <string name="register">Inscription</string>
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="password">Mot de passe</string>
+    <string name="passwordConf">Confirmation du mot de passe</string>
+    <string name="player_stats">Statistiques du joueur</string>
+    <string name="match_list">Liste de matchs</string>
+</resources>

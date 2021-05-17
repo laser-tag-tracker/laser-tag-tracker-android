@@ -20,6 +20,7 @@
         android:layout_height="match_parent">
 
         <ImageView
+            app:imageBitmap="@{viewModel.image}"
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

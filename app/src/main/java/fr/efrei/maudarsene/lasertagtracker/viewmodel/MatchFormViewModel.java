@@ -63,7 +63,7 @@ public class MatchFormViewModel extends AndroidViewModel {
     public MutableLiveData<Double> latitude = new MutableLiveData<>();
     public MutableLiveData<Double> longitude = new MutableLiveData<>();
 
-    public Bitmap image;
+    public MutableLiveData<Bitmap> image = new MutableLiveData<>();
 
     private MatchLocalRepository matchLocalRepository;
     private NavigationService navigationService;
@@ -143,7 +143,7 @@ public class MatchFormViewModel extends AndroidViewModel {
         match.setUserId(credentials.getString("userId", null));
 
         if(this.image != null){
-            this.storeImage(this.image, match.getId() + ".png");
+            this.storeImage(this.image.getValue(), match.getId() + ".png");
         }
 
         matchLocalRepository.insertMatch(match);
