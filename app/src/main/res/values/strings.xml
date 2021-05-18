@@ -22,4 +22,6 @@
     <string name="passwordConf">Password Confirmation</string>
     <string name="player_stats">Player Stats</string>
     <string name="match_list">Match List</string>
+    <string name="passwordError">Passwords are not equals</string>
+    <string name="usernameError">Invalid Username</string>
 </resources>

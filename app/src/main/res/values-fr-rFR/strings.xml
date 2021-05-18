@@ -21,4 +21,6 @@
     <string name="passwordConf">Confirmation du mot de passe</string>
     <string name="player_stats">Statistiques du joueur</string>
     <string name="match_list">Liste de matchs</string>
+    <string name="passwordError">Les mots de passe sont différents</string>
+    <string name="usernameError">Nom d\'utilisateur invalide</string>
 </resources>

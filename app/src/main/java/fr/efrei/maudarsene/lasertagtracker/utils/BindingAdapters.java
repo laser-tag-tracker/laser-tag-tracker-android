@@ -1,5 +1,8 @@
 package fr.efrei.maudarsene.lasertagtracker.utils;
 
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.InverseBindingAdapter;
 
@@ -25,6 +28,10 @@ public class BindingAdapters {
         }
     }
 
+    @BindingAdapter("android:visibility")
+    public static void setBoolean(TextView widget, boolean bool){
+        widget.setVisibility(bool ? View.VISIBLE : View.GONE);
+    }
 
     @BindingAdapter("android:text")
     public static void setDouble(TextInputEditText widget, Double number){

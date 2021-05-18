@@ -45,7 +45,11 @@ public class LaserTagTrackerServiceImpl implements LaserTagTrackerService {
     @Override
     public RegisteredUserDto register(CredentialsDto dto) {
         try {
-            return laserTagTrackerApi.register(dto).execute().body();
+            Response<RegisteredUserDto> response = laserTagTrackerApi.register(dto).execute();
+            if (!response.isSuccessful()) {
+                throw new IllegalArgumentException("Registration failed");
+            }
+            return response.body();
         } catch (IOException exception) {
             Log.e("Network Error",exception.getMessage());
             throw new IllegalStateException("Network error");
@@ -59,7 +63,6 @@ public class LaserTagTrackerServiceImpl implements LaserTagTrackerService {
             if (!response.isSuccessful()) {
                 throw new IllegalArgumentException("Authentication failed");
             }
-
             return response.body();
         } catch (IOException exception) {
             exception.printStackTrace();
