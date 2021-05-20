@@ -1,5 +1,7 @@
 package fr.efrei.maudarsene.lasertagtracker.utils;
 
+import android.widget.TextView;
+
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.InverseBindingAdapter;
 
@@ -8,7 +10,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class BindingAdapters {
 
     @InverseBindingAdapter(attribute = "android:text")
-    public static Double getDouble(TextInputEditText widget){
+    public static Double getDouble(TextView widget){
         String value = widget.getText().toString();
         if(value.equals("")){
             return null;
@@ -27,7 +29,7 @@ public class BindingAdapters {
 
 
     @BindingAdapter("android:text")
-    public static void setDouble(TextInputEditText widget, Double number){
+    public static void setDouble(TextView widget, Double number){
         if(number == null || widget.getText().toString().equals(number.toString())){
             return;
         }
@@ -38,7 +40,7 @@ public class BindingAdapters {
     }
 
     @InverseBindingAdapter(attribute = "android:text")
-    public static Integer getInt(TextInputEditText widget){
+    public static Integer getInt(TextView widget){
         String value = widget.getText().toString();
         if(value.equals("")){
             return null;
@@ -55,7 +57,7 @@ public class BindingAdapters {
         }
     }
     @BindingAdapter("android:text")
-    public static void setInteger(TextInputEditText widget, Integer number){
+    public static void setInteger(TextView widget, Integer number){
         if(number == null || widget.getText().toString().equals(number.toString())){
             return;
         }

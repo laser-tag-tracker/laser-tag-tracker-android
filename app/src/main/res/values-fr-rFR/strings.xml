@@ -21,4 +21,11 @@
     <string name="passwordConf">Confirmation du mot de passe</string>
     <string name="player_stats">Statistiques du joueur</string>
     <string name="match_list">Liste de matchs</string>
+    <string name="team_score_stats">Stats du score de l\'équipe</string>
+    <string name="given_received_stats">Stats Coups donnés vs coups reçus</string>
+    <string name="vs">VS</string>
+    <string name="given_hits_vs_received_hits">Coups donnés VS Coups reçus</string>
+    <string name="your_team_score">Score de votre équipe</string>
+    <string name="your_score">Votre Score</string>
+    <string name="match">Match</string>
 </resources>
