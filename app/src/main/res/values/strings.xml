@@ -28,4 +28,6 @@
     <string name="your_team_score">Your Team Score</string>
     <string name="your_score">Your Score</string>
     <string name="match">Match</string>
+    <string name="passwordError">Passwords are not equals</string>
+    <string name="usernameError">Invalid Username</string>
 </resources>

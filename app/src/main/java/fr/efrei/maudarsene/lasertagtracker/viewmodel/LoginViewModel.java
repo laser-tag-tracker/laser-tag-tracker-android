@@ -60,8 +60,8 @@ public class LoginViewModel extends AndroidViewModel {
                             return laserTagTrackerService.login(credentialsDto);
                         } catch (IllegalArgumentException exception){
                             Log.d("Authentication","Failed");
+                            return null;
                         }
-                        return null;
                     },
                     this::handleAuthSuccess
             ).execute(new CredentialsDto(username.getValue(), password.getValue()));
