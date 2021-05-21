@@ -76,7 +76,7 @@ public class MatchListFragment extends Fragment {
         this.matchListRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         this.matchListRecyclerView.setAdapter(adapter);
 
-        this.viewModel.matchList.observe(this, value -> adapter.setMatches(value));
+        this.viewModel.matchList.observe(getViewLifecycleOwner(), value -> adapter.setMatches(value));
     }
 
 

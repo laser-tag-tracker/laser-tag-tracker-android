@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
+import androidx.databinding.InverseBindingAdapter;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -14,11 +15,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import fr.efrei.maudarsene.lasertagtracker.R;
 import fr.efrei.maudarsene.lasertagtracker.databinding.FragmentLoginBinding;
 import fr.efrei.maudarsene.lasertagtracker.databinding.FragmentMatchDisplayBinding;
 import fr.efrei.maudarsene.lasertagtracker.model.Match;
+import fr.efrei.maudarsene.lasertagtracker.utils.BindingAdapters;
 import fr.efrei.maudarsene.lasertagtracker.viewmodel.LoginViewModel;
 import fr.efrei.maudarsene.lasertagtracker.viewmodel.MatchDisplayViewModel;
 
@@ -60,4 +65,16 @@ public class MatchDisplayFragment extends Fragment {
     public static void loadImage(ImageView iv, Bitmap bitmap) {
         iv.setImageBitmap(bitmap);
     }
+
+
+    @InverseBindingAdapter(attribute = "android:text")
+    public static Integer getInt(TextView widget){
+        return BindingAdapters.getInt(widget);
+    }
+
+    @BindingAdapter("android:text")
+    public static void setInteger(TextView widget, int number){
+        BindingAdapters.setInteger(widget, number);
+    }
+
 }

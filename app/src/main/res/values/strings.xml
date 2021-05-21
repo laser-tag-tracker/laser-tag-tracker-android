@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Laser Tag Tracker</string>
-
     <string name="match_form_name_hint">Player name</string>
     <string name="match_form_score_hint">Player score</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -22,4 +21,11 @@
     <string name="passwordConf">Password Confirmation</string>
     <string name="player_stats">Player Stats</string>
     <string name="match_list">Match List</string>
+    <string name="team_score_stats">Team Score Stats</string>
+    <string name="given_received_stats">Given Received Stats</string>
+    <string name="vs">VS</string>
+    <string name="given_hits_vs_received_hits">Given Hits VS Received Hits</string>
+    <string name="your_team_score">Your Team Score</string>
+    <string name="your_score">Your Score</string>
+    <string name="match">Match</string>
 </resources>

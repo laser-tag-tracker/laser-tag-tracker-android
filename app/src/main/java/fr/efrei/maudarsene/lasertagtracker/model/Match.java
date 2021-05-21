@@ -164,6 +164,8 @@ public class Match implements Serializable {
         this.gunGiven = gunGiven;
     }
 
+    public int getGiven(){ return gunGiven + shouldersGiven + backGiven + chestGiven; }
+
     public int getChestReceived() {
         return chestReceived;
     }
@@ -195,6 +197,8 @@ public class Match implements Serializable {
     public void setGunReceived(int gunReceived) {
         this.gunReceived = gunReceived;
     }
+
+    public int getReceived(){ return gunReceived + shouldersReceived + backReceived + chestReceived; }
 
     public String getAddress() {
         return address;
