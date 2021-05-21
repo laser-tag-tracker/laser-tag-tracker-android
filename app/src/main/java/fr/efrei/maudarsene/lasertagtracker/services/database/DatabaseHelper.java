@@ -8,7 +8,7 @@ import android.util.Log;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "matches.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     public static final String TABLE_NAME = "matches";
     private static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_NAME + " (" +
@@ -29,7 +29,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "chestReceived INTEGER NOT NULL," +
                     "backReceived INTEGER NOT NULL," +
                     "shouldersReceived INTEGER NOT NULL," +
-                    "gunReceived INTEGER NOT NULL" +
+                    "gunReceived INTEGER NOT NULL," +
+
+                    "latitude REAL NOT NULL,"  +
+                    "longitude REAL NOT NULL,"  +
+                    "address TEXT NOT NULL"  +
                     ");";
 
     public DatabaseHelper(Context context) {

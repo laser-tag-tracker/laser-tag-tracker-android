@@ -145,7 +145,7 @@ public class MatchFormViewModel extends AndroidViewModel {
         if(this.image != null){
             this.storeImage(this.image.getValue(), match.getId() + ".png");
         }
-
+        Log.d("Match before insert in local DB",String.valueOf(match));
         matchLocalRepository.insertMatch(match);
         this.navigationService.navigate(MatchFormFragmentDirections.actionMatchFormFragmentToMatchListFragment());
     }

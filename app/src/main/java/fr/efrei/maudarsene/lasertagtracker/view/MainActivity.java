@@ -1,6 +1,7 @@
 package fr.efrei.maudarsene.lasertagtracker.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -11,7 +12,7 @@ import android.view.MenuItem;
 
 import fr.efrei.maudarsene.lasertagtracker.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
     private NavController navController;
 

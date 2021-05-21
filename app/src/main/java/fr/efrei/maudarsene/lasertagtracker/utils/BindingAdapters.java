@@ -6,8 +6,6 @@ import android.widget.TextView;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.InverseBindingAdapter;
 
-import com.google.android.material.textfield.TextInputEditText;
-
 public class BindingAdapters {
 
     @InverseBindingAdapter(attribute = "android:text")

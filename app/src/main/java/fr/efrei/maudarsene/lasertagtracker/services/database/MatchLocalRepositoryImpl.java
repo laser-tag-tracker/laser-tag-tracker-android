@@ -59,6 +59,10 @@ public class MatchLocalRepositoryImpl implements MatchLocalRepository {
             values.put("shouldersReceived", match.getShouldersReceived());
             values.put("gunReceived", match.getGunReceived());
 
+            values.put("latitude", match.getLatitude());
+            values.put("longitude", match.getLongitude());
+            values.put("address", match.getAddress());
+
             database.insert(DatabaseHelper.TABLE_NAME, null, values);
         } catch (Exception e){
             e.printStackTrace();
@@ -93,8 +97,9 @@ public class MatchLocalRepositoryImpl implements MatchLocalRepository {
                     cursor.getInt(cursor.getColumnIndex("backReceived")),
                     cursor.getInt(cursor.getColumnIndex("shouldersReceived")),
                     cursor.getInt(cursor.getColumnIndex("gunReceived")),
-
-                    null, 0, 0
+                    cursor.getString(cursor.getColumnIndex("address")),
+                    cursor.getDouble(cursor.getColumnIndex("latitude")),
+                    cursor.getDouble(cursor.getColumnIndex("longitude"))
             );
             cursor.move(1);
             matches.add(match);
