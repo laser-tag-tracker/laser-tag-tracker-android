@@ -12,7 +12,7 @@ import android.view.MenuItem;
 
 import fr.efrei.maudarsene.lasertagtracker.R;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     private NavController navController;
 
