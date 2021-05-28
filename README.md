@@ -109,6 +109,8 @@ MP Charts is a plotting library for android that allows to draw all sorts of plo
 - Address Geocoding using Android's Geocoder
 - Match location are displayed on a google map
 
+Note on the google map : the screenshots showcased at the end of this report have a "MapBox" timestamp, because the phone we tested with runs a custom Android ROM which provides an open source and privacy friendly google play services implementation (microG). The UI control we used is the one from Google Maps that we learnt to used in the lessons.
+
 ### Internal Storage
 
 - The five last matches are stored in the embedded SQLite Database
@@ -134,7 +136,7 @@ The user is able to take a photo for a match with the phones camera. The photos 
 
 ### Forms validation
 
-The forms (login, register, match creation) are empowered with validation feature that interactivly informs the user when values are invalid using `MediatorLiveData` to reactivly compute validity and `TextInputLayout` validation API to show the error messages.
+The user management forms (login, register) are empowered with validation feature that interactivly informs the user when values are invalid using `MediatorLiveData` to reactivly compute validity and `TextInputLayout` validation API to show the error messages. In addition when a form is not valid, the submission button is disabled.
 
 ## Not Implemented Features
 
@@ -154,18 +156,34 @@ We also had some issue with the MP charts library, because we found the document
 
 ## Architecture Diagram
 
-![](img/architecture.png)
+![Architecture Diagram](img/architecture.png)
 
 ## Screens
 
 ### Login Screen
 
+![Login](img/login.png)
+
 ### Register Screen
+
+![Register](img/register.png)
 
 ### Match List Screen
 
+![Local Matches](img/list-local.png)
+
+![Remote Matches and Stats menu](img/list-remote-menu.png)
+
 ### Create Match Screen
+
+![Create Match](img/add-match.png)
+![Create Match](img/add-match-2.png)
+![Location Permission](img/location-permission.png)
 
 ### Match Detail Screen
 
+![Match Detail](img/display.png)
+
 ### Player Stats Screen
+
+![Stats](img/stats.png)

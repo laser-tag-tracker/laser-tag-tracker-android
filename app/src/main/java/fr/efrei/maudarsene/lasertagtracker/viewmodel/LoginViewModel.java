@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import fr.efrei.maudarsene.lasertagtracker.services.api.GenericAsyncTask;
@@ -25,8 +26,25 @@ public class LoginViewModel extends AndroidViewModel {
     public MutableLiveData<String> username = new MutableLiveData<>();
     public MutableLiveData<String> password = new MutableLiveData<>();
 
+    public MediatorLiveData<Boolean> formValid = new MediatorLiveData<>();
+    public MediatorLiveData<Boolean> usernameValid = new MediatorLiveData<>();
+    public MediatorLiveData<Boolean> passwordValid = new MediatorLiveData<>();
+
     public void setNavigationService(NavigationService navigationService) {
         this.navigationService = navigationService;
+        passwordValid.setValue(false);
+        usernameValid.setValue(false);
+        formValid.setValue(false);
+
+        usernameValid.addSource(username, value -> usernameValid.setValue(this.fieldValid(username)));
+        passwordValid.addSource(password, value -> passwordValid.setValue(this.fieldValid(password)));
+
+        formValid.addSource(usernameValid, value -> formValid.setValue(usernameValid.getValue() && passwordValid.getValue()));
+        formValid.addSource(passwordValid, value -> formValid.setValue(usernameValid.getValue() && passwordValid.getValue()));
+    }
+
+    private boolean fieldValid(MutableLiveData<String> field){
+        return field.getValue().length() > 0;
     }
 
     public void setLaserTagTrackerService(LaserTagTrackerService laserTagTrackerService) {

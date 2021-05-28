@@ -26,8 +26,9 @@ public class RegisterViewModel extends AndroidViewModel {
     public MutableLiveData<String> passwordConf = new MutableLiveData<>("");
 
     public MediatorLiveData<Boolean> formValid = new MediatorLiveData<>();
-    public MediatorLiveData<Boolean> passwordsValid = new MediatorLiveData<>();
     public MediatorLiveData<Boolean> usernameValid = new MediatorLiveData<>();
+    public MediatorLiveData<Boolean> passwordsValid = new MediatorLiveData<>();
+
 
     public RegisterViewModel(@NonNull Application application) {
         super(application);
