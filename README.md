@@ -32,7 +32,7 @@ In conclusion, MVVM pattern helps us to enforce the single responsability princi
 
 ### MVVM in Android
 
-The Android Framework provide tools that help us implent easily the MVVM pattern. There is an abstract class named "AndroidViewModel" that our viewModels will extends in order to benefit from various fonctionnalities For instance, our viewModel will become aware of the fragment's lifecycle, which means that if the fragment is destroyed on a configuration change (like a rotation), the new instance of the owner will just re-connect to the existing viewModel.
+The Android Framework provide tools that help us implent easily the MVVM pattern. There is an abstract class named "AndroidViewModel" that our viewModels will extends in order to benefit from various fonctionnalities. For instance, our viewModel will become aware of the fragment's lifecycle, which means that if the fragment is destroyed on a configuration change (like a rotation), the new instance of the owner will just re-connect to the existing viewModel.
 Since we are using AndroidViewModel, we decided to use LiveData. They are observable values, which mean that we can subscribe to their changes. Thus, we will have reactive databinding and will be able to create MediatorLiveData for reactive validation.
 
 ### Databinding
@@ -90,7 +90,7 @@ Butterknife is a very simple utility library that performs annotation-based view
 public Button myButton;
 ```
 
-It remove from the code the boilerplate `findViewById` calls.
+It removes from the code, the boilerplate `findViewById` calls.
 
 ## JetPack Navigation
 
@@ -166,7 +166,7 @@ The one major improvement that we could underline is the image handling. Current
 
 ## Most recent matches
 
-Also the list of match only gives you the last 5 matches you created on this particular phone : when a match is created on an user phone, you cannot decide to store locally this match on another phone. You'll have to retreive them from the distant Database each time you want them to be displayed, event if it is the most recent match you created. It would be interesting to add a feature that, when you retreive all distant match, you also update your local database in order to have the five most recent, whatever the phone on which they were created.
+Also the list of match only gives you the last 5 matches you created on this particular phone : when a match is created on an user phone, you cannot decide to store locally this match on another phone. You'll have to retreive them from the distant Database each time you want them to be displayed, even if it is the most recent match you created. It would be interesting to add a feature that, when you retreive all distant match, you also update your local database in order to have the five most recent, whatever the phone on which they were created.
 
 ## Dependancy Injection
 
@@ -176,11 +176,11 @@ From an architectural point of view we could also use a dependancy injection fra
 
 ## Databinding
 
-Our biggest difficulty was with the Databinding. When we wanted to display a number in a `TextView`, or create an `TextInputEditText` that will take a number (on the create match screen or the match detail screen) we thought at first that the databinding would convert automatically numbers to string and vice versa. However that feature was not implemented, and we had to create or own `@BindingAdapter` methods to achieve the conversion. The code of the bindings is in the BindingAdapters file, but we also had to declare the bindings in each fragment that would use them, since we did not find how to call custom binding adapters that were not directly in the fragment.
+Our biggest difficulty was with the Databinding. When we wanted to display a number in a `TextView`, or create an `TextInputEditText` that will take a number (on the create match screen or the match detail screen) we thought at first that the databinding would convert automatically numbers to string and vice versa. However that feature was not implemented, and we had to create our own `@BindingAdapter` methods to achieve the conversion. The code of the bindings is in the BindingAdapters file, but we also had to declare the bindings in each fragment that would use them, since we did not find how to call custom binding adapters that were not directly in the fragment.
 
 ## Charts
 
-We also had some issue with the MP charts library, because we found the documentation quite unclear. We easily succeeded in creating simple barcharts, but it became more difficult when we decided to create bar charts with grouped bar. Hopefully, after many trials, we managed to create simple groupes bar charts.
+We also had some issue with the MP charts library, because we found the documentation quite unclear. We easily succeeded in creating simple barcharts, but it became more difficult when we decided to create bar charts with grouped bar. Hopefully, after many trials, we managed to create simple grouped bar charts.
 
 \newpage{}
 
